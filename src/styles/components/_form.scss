@@ -1,0 +1,66 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the form component.
+// -----------------------------------------------------------------------------
+
+@use '../abstracts/' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(16);
+
+  @include breakpoint('small') {
+    width: to-rem(427);
+
+    flex-direction: row;
+    position: relative;
+  }
+
+  &__input,
+  &__button {
+    padding: to-rem(9) to-rem(32);
+    border-radius: 100px;
+    border: none;
+    font-weight: 700;
+    font-size: to-rem(14);
+    line-height: to-rem(28);
+  }
+
+  &__input {
+    color: clr('neutral', 100);
+    background-color: clr('neutral');
+
+    &:focus-visible,
+    &:focus {
+      outline: 2px solid clr('primary');
+    }
+
+    @include breakpoint('small') {
+      flex-grow: 1;
+      padding: to-rem(14) 42% to-rem(14) to-rem(32);
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    color: clr('neutral', 500);
+    background-color: clr('primary');
+    transition: background-color 0.3s;
+
+    &:hover,
+    &:focus-visible {
+      background-color: clr('primary', 300);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include breakpoint('small') {
+      position: absolute;
+      right: 0;
+      margin: to-rem(5);
+      padding: to-rem(9) to-rem(27);
+    }
+  }
+}

@@ -1,0 +1,51 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@100;300;700&display=swap');
+
+/// Main font family
+$ff-primary: 'Chivo', sans-serif;
+
+/// Container's maximum width
+/// @type Length
+$max-width: 69.375rem !default;
+
+$colors: (
+  primary: (
+    300: hsl(157, 100%, 85%),
+    400: hsl(157, 74%, 62%),
+  ),
+  neutral: (
+    100: hsl(0, 0%, 100%),
+    200: hsl(225, 40%, 83%),
+    300: hsl(225, 21%, 45%),
+    400: hsl(255, 26%, 23%),
+    500: hsl(224, 35%, 11%),
+  ),
+  accent: (
+    400: hsl(0, 96%, 61%),
+  ),
+);
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'small': 37.6em,
+  'medium': 50em,
+  'large': 62.5em,
+) !default;
+
+/// Z-indexes map, gathering all Z layers of the application
+/// @access private
+/// @type Map
+/// @prop {String} key - Layer’s name
+/// @prop {Number} value - Z value mapped to the key
+$z-indexes: (
+  'above': 600,
+  'modal': 500,
+  'dropdown': 400,
+  'default': 1,
+  'below': -1,
+);

@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo:wght@100;300;700&display=swap");
+/* RESET CSS */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  color-scheme: light;
+  --clr-primary-300: hsl(157, 100%, 85%);
+  --clr-primary-400: hsl(157, 74%, 62%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsl(225, 40%, 83%);
+  --clr-neutral-300: hsl(225, 21%, 45%);
+  --clr-neutral-400: hsl(255, 26%, 23%);
+  --clr-neutral-500: hsl(224, 35%, 11%);
+  --clr-accent-400: hsl(0, 96%, 61%);
+}
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+.container {
+  --padding-inline: 1.5rem;
+  margin-inline: var(--padding-inline);
+  max-width: 69.375rem;
+}
+
+.grid-container {
+  --padding-inline: 1.5rem;
+  --num-col: 12;
+  --col-gap: 0.625rem;
+  display: grid;
+  margin-inline: var(--padding-inline);
+  max-width: 69.375rem;
+}
+@media only screen and (min-width: 37.6em) {
+  .grid-container {
+    --padding-inline: 2.5rem;
+    grid-template-columns: [center-start] repeat(var(--num-col), [col-start] 1fr [col-end]) [center-end];
+    column-gap: var(--col-gap);
+  }
+  .grid-container > * {
+    grid-column: center;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .grid-container {
+    --col-gap: 1.875rem;
+  }
+}
+@media only screen and (min-width: 71.875em) {
+  .grid-container {
+    margin-inline: auto;
+  }
+}
+
+/**
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/**
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ * Basic typography style for copy text
+ */
+body {
+  font-size: 0.9375rem;
+  font-family: "Chivo", sans-serif;
+  color: var(--clr-neutral-200);
+  background-color: var(--clr-neutral-500);
+  font-weight: 200;
+  line-height: 1.5625rem;
+}
+@media only screen and (min-width: 37.6em) {
+  body {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+.heading--primary {
+  font-size: 1.625rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: var(--clr-primary-400);
+  line-height: 2.375rem;
+}
+@media only screen and (min-width: 37.6em) {
+  .heading--primary {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .heading--primary {
+    font-size: 3.25rem;
+    line-height: 3.875rem;
+  }
+}
+.heading--primary span {
+  color: var(--clr-neutral-100);
+}
+
+input,
+input::placeholder {
+  font-size: clamp(0.75rem, 1.8229166667vw, 1rem);
+}
+
+::selection {
+  background-color: var(--clr-primary-300);
+  color: var(--clr-neutral-500);
+}
+
+.hero {
+  padding-block: 3.875rem 5.875rem;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+@media only screen and (min-width: 37.6em) {
+  .hero {
+    padding-block-start: 3.125rem;
+  }
+  .hero::before {
+    content: url("../assets/bg-pattern-dots.svg");
+    position: absolute;
+    bottom: 0;
+    left: 1.875rem;
+    z-index: -1;
+  }
+}
+@media only screen and (min-width: 62.5em) {
+  .hero {
+    padding-block: 8.125rem;
+  }
+  .hero .logo {
+    transform: translateY(-50%);
+  }
+  .hero::before {
+    bottom: 8.125rem;
+    right: 0;
+    left: auto;
+    transform: translateY(50%);
+    z-index: 1;
+  }
+}
+.hero__picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+@media only screen and (min-width: 62.5em) {
+  .hero__picture {
+    inset: 8.125rem 0 8.125rem 0;
+  }
+}
+.hero__image {
+  mix-blend-mode: screen;
+  object-fit: cover;
+  object-position: top center;
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
+  transition: opacity 0.2s;
+}
+@media only screen and (min-width: 37.6em) {
+  .hero__image {
+    opacity: 1;
+    height: auto;
+    width: auto;
+    position: absolute;
+    object-position: top right;
+    right: 0;
+    top: 0;
+  }
+}
+.hero__container {
+  row-gap: 3.5625rem;
+  justify-items: center;
+}
+@media only screen and (min-width: 37.6em) {
+  .hero__container {
+    justify-items: start;
+    row-gap: 9.5rem;
+  }
+}
+@media only screen and (min-width: 62.5em) {
+  .hero__container {
+    row-gap: 4.6875rem;
+  }
+}
+.hero__content {
+  display: grid;
+  row-gap: 1rem;
+  text-align: center;
+}
+@media only screen and (min-width: 37.6em) {
+  .hero__content {
+    row-gap: 2rem;
+    padding-top: 5.8125rem;
+    padding-right: 2.5rem;
+    background-color: var(--clr-neutral-500);
+    text-align: left;
+    max-width: 45.1875rem;
+  }
+}
+@media only screen and (min-width: 62.5em) {
+  .hero__content {
+    row-gap: 1.5rem;
+    padding-top: 5.5rem;
+    padding-right: 3.625rem;
+  }
+}
+.hero__text {
+  margin-bottom: 1rem;
+}
+@media only screen and (min-width: 37.6em) {
+  .hero__text {
+    width: 40ch;
+    margin-bottom: 0.5rem;
+  }
+}
+@media only screen and (min-width: 62.5em) {
+  .hero__text {
+    margin-bottom: 1rem;
+  }
+}
+.hero__social-proof {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(3.125rem, 1fr));
+  align-items: center;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+  margin-bottom: 2rem;
+}
+@media only screen and (min-width: 37.6em) {
+  .hero__social-proof {
+    margin: 2rem 6.25rem 0 0;
+    grid-row: 4;
+  }
+}
+@media only screen and (min-width: 62.5em) {
+  .hero__social-proof {
+    margin: 2.5rem 6.25rem 0 0;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media only screen and (min-width: 37.6em) {
+  .form {
+    width: 26.6875rem;
+    flex-direction: row;
+    position: relative;
+  }
+}
+.form__input, .form__button {
+  padding: 0.5625rem 2rem;
+  border-radius: 100px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+.form__input {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-400);
+}
+.form__input:focus-visible, .form__input:focus {
+  outline: 2px solid var(--clr-primary-400);
+}
+@media only screen and (min-width: 37.6em) {
+  .form__input {
+    flex-grow: 1;
+    padding: 0.875rem 42% 0.875rem 2rem;
+  }
+}
+.form__button {
+  cursor: pointer;
+  color: var(--clr-neutral-500);
+  background-color: var(--clr-primary-400);
+  transition: background-color 0.3s;
+}
+.form__button:hover, .form__button:focus-visible {
+  background-color: var(--clr-primary-300);
+}
+.form__button:focus {
+  outline: none;
+}
+@media only screen and (min-width: 37.6em) {
+  .form__button {
+    position: absolute;
+    right: 0;
+    margin: 0.3125rem;
+    padding: 0.5625rem 1.6875rem;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

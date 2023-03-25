@@ -1,0 +1,51 @@
+/**
+ * Basic typography style for copy text
+ */
+
+@use '../abstracts/' as *;
+
+body {
+  font-size: to-rem(15);
+  font-family: $ff-primary;
+  color: clr('neutral', 200);
+  background-color: clr('neutral', 500);
+  font-weight: 200;
+  line-height: to-rem(25);
+
+  @include breakpoint('small') {
+    font-size: to-rem(18);
+    line-height: to-rem(28);
+  }
+}
+
+.heading--primary {
+  font-size: to-rem(26);
+  font-weight: 100;
+  text-transform: uppercase;
+  color: clr('primary');
+  line-height: to-rem(38);
+
+  @include breakpoint('small') {
+    font-size: to-rem(48);
+    line-height: to-rem(56);
+  }
+
+  @include breakpoint('medium') {
+    font-size: to-rem(52);
+    line-height: to-rem(62);
+  }
+
+  span {
+    color: clr('neutral', 100);
+  }
+}
+
+input,
+input::placeholder {
+  font-size: minmax-font(12, 16);
+}
+
+::selection {
+  background-color: clr('primary', 300);
+  color: clr('neutral', 500);
+}
