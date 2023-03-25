@@ -1,0 +1,13 @@
+{
+  "name": "pod-request-access-landing-page",
+  "version": "1.0.0",
+  "description": "This is a solution to the Pod request access landing page challenge on Frontend Mentor.",
+  "scripts": {
+    "watch:sass": "sass --watch ./src/styles/main.scss ./src/styles/main.css"
+  },
+  "author": "Mateus Belicio",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.60.0"
+  }
+}

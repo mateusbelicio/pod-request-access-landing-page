@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon-32x32.png">
+  <link rel="stylesheet" href="./src/styles/main.css">
+  
+  <title>Frontend Mentor | Pod request access landing page</title>
+</head>
+<body>
+  <main class="hero">
+    <div class="hero__container grid-container">
+      <img src="./src/assets/logo.svg" alt=""  aria-hidden="true" class="logo">
+
+      <div class="hero__content">
+        <h1 class="hero__title heading--primary">Publish your podcasts <span>everywhere.</span></h1>
+        <p class="hero__text">
+          Upload your audio to Pod with a single click. We’ll then distribute your podcast to Spotify, 
+          Apple Podcasts, Google Podcasts, Pocket Casts and more!
+        </p>
+        <picture class="hero__picture">
+          <source media="(min-width: 60em)" srcset="./src/assets/image-host.jpg">
+          <source media="(min-width: 37.6em)" srcset="./src/assets/tablet/image-host.jpg">
+          <img src="./src/assets/mobile/image-host.jpg" alt="" class="hero__image">
+        </picture>
+        <div class="hero__social-proof">
+          <img src="./src/assets/spotify.svg" alt="" class="hero__social-proof-logo">
+          <img src="./src/assets/apple-podcast.svg" alt="" class="hero__social-proof-logo">
+          <img src="./src/assets/google-podcasts.svg" alt="" class="hero__social-proof-logo">
+          <img src="./src/assets/pocket-casts.svg" alt="" class="hero__social-proof-logo">
+        </div>
+        <form class="form" novalidate>
+          <input class="form__input" type="email" aria-label="Insert your email" placeholder="Email address" >
+          <button class="form__button" type="submit">Request access</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
