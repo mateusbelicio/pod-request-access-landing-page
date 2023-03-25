@@ -6,6 +6,8 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon-32x32.png">
   <link rel="stylesheet" href="./src/styles/main.css">
+
+  <script type="module" src="./src/scripts/main.js" defer></script>
   
   <title>Frontend Mentor | Pod request access landing page</title>
 </head>
@@ -31,8 +33,9 @@
           <img src="./src/assets/google-podcasts.svg" alt="" class="hero__social-proof-logo">
           <img src="./src/assets/pocket-casts.svg" alt="" class="hero__social-proof-logo">
         </div>
-        <form class="form" novalidate>
+        <form class="form" novalidate data-valid="false">
           <input class="form__input" type="email" aria-label="Insert your email" placeholder="Email address" >
+          <p class="form__message"></p>
           <button class="form__button" type="submit">Request access</button>
         </form>
       </div>

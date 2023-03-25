@@ -9,10 +9,16 @@
   flex-direction: column;
   gap: to-rem(16);
 
+  &[data-valid='true'] &__message {
+    color: clr('primary');
+  }
+
   @include breakpoint('small') {
     width: to-rem(427);
 
     flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: to-rem(8);
     position: relative;
   }
 
@@ -28,7 +34,7 @@
 
   &__input {
     color: clr('neutral', 100);
-    background-color: clr('neutral');
+    background-color: clr('neutral', 400);
 
     &:focus-visible,
     &:focus {
@@ -62,5 +68,15 @@
       margin: to-rem(5);
       padding: to-rem(9) to-rem(27);
     }
+  }
+
+  &__message {
+    display: block;
+    padding-inline: to-rem(32);
+
+    font-size: to-rem(12);
+    font-weight: 700;
+    color: clr('accent');
+    line-height: 1;
   }
 }
